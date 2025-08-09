@@ -1,9 +1,6 @@
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'AlynCoin | Quantum-Resistant Cryptocurrency',
@@ -12,12 +9,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en">
       <body className="bg-black text-white">
-        {/* 🔔 Global Launch Notice */}
+        {/* 🔔 Global Early Mining Notice */}
         <div className="fixed top-0 left-0 w-full bg-gradient-to-r from-cyan-700 via-black to-cyan-700 text-white text-sm md:text-base font-semibold py-2 z-50 overflow-hidden">
           <div className="animate-marquee whitespace-nowrap min-w-full px-4">
-            🚀 Expected launch in <span className="text-yellow-300 font-bold">September</span>! Join our early access program and be first to explore AlynCoin.
+            🚀 Early Mining Access Alert! Tag <span className="text-yellow-300 font-bold">#AlynCoin</span> on Twitter or Instagram to get whitelist access to early mining rewards & wallet features. 🧠 Don’t miss this chance to mine early!
           </div>
         </div>
 
