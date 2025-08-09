@@ -27,6 +27,70 @@ export default function Home() {
     </section>
   );
 
+  const features = [
+    { title: 'Post-Quantum Signatures', description: 'Falcon + Dilithium security' },
+    { title: 'zk-STARK Proofs', description: 'Privacy and scalability built-in' },
+    { title: 'Hybrid PoW', description: 'BLAKE3 + Keccak for resilient mining' },
+    { title: 'Atomic Swaps', description: 'Cross-chain interoperability' },
+    { title: 'Self-Healing Nodes', description: 'Autonomous sync & recovery' },
+    { title: 'Quantum-Secure NFTs', description: 'Verifiable and tamper-proof' },
+    { title: 'DAO Governance', description: 'Fully decentralized control' },
+    { title: 'Recursive zk-Rollups', description: 'Efficient L2 aggregation' },
+    { title: 'CLI & GUI Wallet', description: 'Complete with L1, L2, and more' },
+  ];
+
+  const progress = [
+    {
+      title: 'Blockchain Core',
+      status: '✅ Complete',
+      description:
+        'Hybrid PoW engine built with BLAKE3 and Keccak, plus post‑quantum signature integration.',
+    },
+    {
+      title: 'Wallet & zk Infrastructure',
+      status: '✅ Complete',
+      description:
+        'GUI and CLI wallets support L1/L2 transactions and mining; zk‑STARK proofs & recursive rollups operational.',
+    },
+    {
+      title: 'NFT Support',
+      status: '✅ Complete',
+      description: 'NFT minting and management tools are live.',
+    },
+    {
+      title: 'Atomic Swaps',
+      status: '🚧 In Progress',
+      description: 'Trustless cross‑chain trading is under active development.',
+    },
+    {
+      title: 'Public Testnet & Mobile Wallet',
+      status: '🚧 In Progress',
+      description:
+        'Testnet launch and mobile client are underway; expected later this year.',
+    },
+    {
+      title: 'Miner Launch',
+      status: '🚀 September 2025',
+      description:
+        'Official miner release coming September 2025—join our community to get early access.',
+    },
+  ];
+
+  const building = [
+    { title: '💡 A custom non-EVM Layer-1', description: 'No legacy baggage' },
+    { title: '🔐 Zero-knowledge proofs', description: 'Using Winterfell zk-STARKs' },
+    { title: '🧠 Fully quantum-safe key systems', description: 'Falcon, Dilithium' },
+    { title: '🪙 Native token', description: 'Elastic difficulty + modular emission' },
+    {
+      title: '🧹 zk-based identity & governance',
+      description: 'zk-NFTs, DAO governance, rollups',
+    },
+    {
+      title: '🔄 Recursive proofs',
+      description: 'Support for scalability & compression',
+    },
+  ];
+
   return (
     <>
       {/* HERO */}
@@ -92,17 +156,17 @@ export default function Home() {
           <h2 className="text-3xl font-extrabold text-center mb-10 bg-gradient-to-r from-cyan-300 to-blue-500 text-transparent bg-clip-text drop-shadow-lg">
             🔐 Quantum-Ready Features
           </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-300 text-base md:text-lg leading-relaxed">
-            <li>• <strong>Post-Quantum Signatures</strong> – Falcon + Dilithium security</li>
-            <li>• <strong>zk-STARK Proofs</strong> – Privacy and scalability built-in</li>
-            <li>• <strong>Hybrid PoW</strong> – BLAKE3 + Keccak for resilient mining</li>
-            <li>• <strong>Atomic Swaps</strong> – Cross-chain interoperability</li>
-            <li>• <strong>Self-Healing Nodes</strong> – Autonomous sync & recovery</li>
-            <li>• <strong>Quantum-Secure NFTs</strong> – Verifiable and tamper-proof</li>
-            <li>• <strong>DAO Governance</strong> – Fully decentralized control</li>
-            <li>• <strong>Recursive zk-Rollups</strong> – Efficient L2 aggregation</li>
-            <li>• <strong>CLI & GUI Wallet</strong> – Complete with L1, L2, and more</li>
-          </ul>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            {features.map(({ title, description }) => (
+              <div
+                key={title}
+                className="p-4 rounded-lg border border-gray-700 bg-gray-800 shadow-sm space-y-2"
+              >
+                <h3 className="text-lg font-semibold">{title}</h3>
+                <p className="text-sm text-gray-400">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </FramedSection>
 
@@ -112,16 +176,20 @@ export default function Home() {
           <h2 className="text-3xl font-extrabold mb-6 bg-gradient-to-r from-cyan-300 to-blue-500 text-transparent bg-clip-text drop-shadow-lg">
             🚀 Current Progress
           </h2>
-          <ul className="space-y-4 text-base md:text-lg text-gray-300 leading-relaxed">
-            <li>✅ <span className="text-white">Blockchain Core</span> with hybrid PoW engine is complete</li>
-            <li>✅ <span className="text-white">Falcon & Dilithium</span> signature support integrated</li>
-            <li>✅ <span className="text-white">GUI + CLI Wallet</span> with L1/L2 transactions and mining</li>
-            <li>✅ <span className="text-white">zk-STARK Proofs</span> and Recursive Rollups functional</li>
-            <li>✅ <span className="text-white">NFT and Atomic Swap</span> protocols implemented</li>
-            <li>✅ <span className="text-white">Live node sync</span> + Self-healing sync logic verified</li>
-            <li>🚧 <span className="text-white">Public Testnet</span> and Mobile Wallet in progress</li>
-            <li>🚧 <span className="text-white">DAO voting improvements</span> and GUI polish ongoing</li>
-          </ul>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+            {progress.map(({ title, status, description }) => (
+              <div
+                key={title}
+                className="p-4 rounded-lg border border-gray-700 bg-gray-800 shadow-sm space-y-2"
+              >
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <span className="text-sm font-medium text-primary">{status}</span>
+                </div>
+                <p className="text-sm text-gray-400">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </FramedSection>
 
@@ -131,14 +199,17 @@ export default function Home() {
           <h2 className="text-3xl font-extrabold mb-6 bg-gradient-to-r from-cyan-300 to-blue-500 text-transparent bg-clip-text drop-shadow-lg">
             🧱 What We're Building
           </h2>
-          <ul className="space-y-4 text-base md:text-lg text-gray-300 leading-relaxed">
-            <li>💡 A custom non-EVM Layer-1 with no legacy baggage</li>
-            <li>🔐 Zero-knowledge proofs using <strong>Winterfell zk-STARKs</strong></li>
-            <li>🧠 Fully quantum-safe key systems (Falcon, Dilithium)</li>
-            <li>🪙 Native token with elastic difficulty + modular emission</li>
-            <li>🧹 zk-based identity, zk-NFTs, DAO governance, rollups</li>
-            <li>🔄 Recursive proof support for scalability & compression</li>
-          </ul>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+            {building.map(({ title, description }) => (
+              <div
+                key={title}
+                className="p-4 rounded-lg border border-gray-700 bg-gray-800 shadow-sm space-y-2"
+              >
+                <h3 className="text-lg font-semibold">{title}</h3>
+                <p className="text-sm text-gray-400">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </FramedSection>
 
