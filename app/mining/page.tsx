@@ -1,8 +1,5 @@
 "use client";
 
-import { Cpu, GaugeCircle, Flame, DollarSign } from 'lucide-react';
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
-
 /**
  * Mining page
  *
@@ -47,77 +44,30 @@ export default function MiningPage() {
       <div className="py-12 space-y-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <MiningCard
-            icon={<Cpu className="h-8 w-8 text-primary" />}
+            icon="🖥️"
             title="Hybrid PoW"
             description="Combines BLAKE3 and Keccak hashing for both efficiency and resilience."
           />
           <MiningCard
-            icon={<GaugeCircle className="h-8 w-8 text-primary" />}
+            icon="📈"
             title="Dynamic Difficulty"
             description="Linearly weighted moving average algorithm keeps block times stable and fair."
           />
           <MiningCard
-            icon={<Flame className="h-8 w-8 text-primary" />}
+            icon="🔥"
             title="Emission Schedule"
             description="Rewards start at 25 ALYN and decay ~0.09% per block with a 0.25 ALYN tail emission."
           />
           <MiningCard
-            icon={<DollarSign className="h-8 w-8 text-primary" />}
+            icon="💰"
             title="Burn & Developer Fund"
             description="Transaction fees are partially burned and partially allocated to the DAO treasury."
           />
         </div>
-<<<<<<< HEAD
         <div className="max-w-4xl mx-auto bg-gray-900/60 rounded-lg p-6">
           <h2 className="text-2xl font-semibold text-center mb-4 text-gray-100">Block Reward Decay</h2>
           <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={emissionData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-                <XAxis
-                  dataKey="block"
-                  tickFormatter={(v) => v.toLocaleString()}
-                  tick={{ fill: '#ccc', fontSize: 12 }}
-                  axisLine={{ stroke: '#666' }}
-                  tickLine={{ stroke: '#666' }}
-                />
-                <YAxis
-                  label={{ value: 'Reward (ALYN)', angle: -90, position: 'insideLeft', fill: '#ccc' }}
-                  tick={{ fill: '#ccc', fontSize: 12 }}
-                  axisLine={{ stroke: '#666' }}
-                  tickLine={{ stroke: '#666' }}
-                />
-                <Tooltip
-                  contentStyle={{ backgroundColor: '#222', color: '#fff', borderRadius: '0.375rem', padding: '0.5rem' }}
-                  itemStyle={{ color: '#fff' }}
-                  labelStyle={{ color: '#fff' }}
-                  formatter={(value: number) => `${(value as number).toFixed(4)} ALYN`}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="reward"
-                  stroke="#00B37E"
-                  strokeWidth={2}
-                  dot={{ r: 2, stroke: '#00B37E', fill: '#00B37E' }}
-                  activeDot={{ r: 4 }}
-                />
-=======
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold text-center mb-4">Block Reward Decay</h2>
-          <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={emissionData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
-                <XAxis dataKey="block" tickFormatter={(v) => v.toLocaleString()} />
-                <YAxis label={{ value: 'Reward (ALYN)', angle: -90, position: 'insideLeft' }} />
-                <Tooltip
-                  contentStyle={{ backgroundColor: '#fff', color: '#000', borderRadius: '0.375rem', padding: '0.5rem' }}
-                  formatter={(value: number) => `${value.toFixed(4)} ALYN`}
-                />
-                <Line type="monotone" dataKey="reward" stroke="#008080" strokeWidth={2} dot={{ r: 1 }} />
->>>>>>> 4ed76f0cb04f092c9ede81e27880315351f797a7
-              </LineChart>
-            </ResponsiveContainer>
+            <SimpleLineChart data={emissionData} />
           </div>
         </div>
         <div className="max-w-4xl mx-auto space-y-4">
@@ -134,14 +84,27 @@ export default function MiningPage() {
   );
 }
 
-function MiningCard({ icon, title, description }: { icon: React.ReactElement; title: string; description: string; }) {
+function MiningCard({ icon, title, description }: { icon: string; title: string; description: string }) {
   return (
     <div className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm flex space-x-4">
-      <div className="shrink-0">{icon}</div>
+      <div className="shrink-0 text-2xl" aria-hidden="true">{icon}</div>
       <div>
         <h3 className="text-lg font-semibold mb-1">{title}</h3>
         <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
       </div>
     </div>
+  );
+}
+
+function SimpleLineChart({ data }: { data: { block: number; reward: number }[] }) {
+  const maxX = Math.max(...data.map(d => d.block));
+  const maxY = Math.max(...data.map(d => d.reward));
+  const points = data
+    .map(d => `${(d.block / maxX) * 100},${100 - (d.reward / maxY) * 100}`)
+    .join(' ');
+  return (
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <polyline fill="none" stroke="#00B37E" strokeWidth="2" points={points} />
+    </svg>
   );
 }

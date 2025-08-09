@@ -1,7 +1,5 @@
 "use client";
 
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
-
 /**
  * Tokenomics page
  *
@@ -71,66 +69,14 @@ export default function TokenomicsPage() {
       </div>
 
       {/* Emission Chart */}
-<<<<<<< HEAD
       <div className="max-w-4xl mx-auto bg-gray-900/60 rounded-lg p-6">
         <h2 className="text-2xl font-semibold mb-4 text-center text-gray-100">Block Reward Decay</h2>
         <p className="text-center text-sm text-gray-400 mb-6">
           Rewards start at 25 ALYN and decay by approximately 0.09% per block. A perpetual tail
           emission of 0.25 ALYN per block ensures ongoing miner incentives once rewards stabilize near zero.
-=======
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-4 text-center">Block Reward Decay</h2>
-        <p className="text-center text-sm text-gray-600 dark:text-gray-400 mb-6">
-          Rewards start at 25 ALYN and decay by approximately 0.09% per block. A perpetual
-          tail emission of 0.25 ALYN per block ensures ongoing miner incentives once rewards
-          stabilize near zero.
->>>>>>> 4ed76f0cb04f092c9ede81e27880315351f797a7
         </p>
         <div className="h-64">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={emissionData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-<<<<<<< HEAD
-              {/* Dark grid and axes for better contrast on a black backdrop */}
-              <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-              <XAxis
-                dataKey="block"
-                tickFormatter={(v) => v.toLocaleString()}
-                tick={{ fill: '#ccc', fontSize: 12 }}
-                axisLine={{ stroke: '#666' }}
-                tickLine={{ stroke: '#666' }}
-              />
-              <YAxis
-                label={{ value: 'Reward (ALYN)', angle: -90, position: 'insideLeft', fill: '#ccc' }}
-                tick={{ fill: '#ccc', fontSize: 12 }}
-                axisLine={{ stroke: '#666' }}
-                tickLine={{ stroke: '#666' }}
-              />
-              <Tooltip
-                contentStyle={{ backgroundColor: '#222', color: '#fff', borderRadius: '0.375rem', padding: '0.5rem' }}
-                itemStyle={{ color: '#fff' }}
-                labelStyle={{ color: '#fff' }}
-                formatter={(value: number) => `${(value as number).toFixed(4)} ALYN`}
-              />
-              <Line
-                type="monotone"
-                dataKey="reward"
-                stroke="#00B37E"
-                strokeWidth={2}
-                dot={{ r: 2, stroke: '#00B37E', fill: '#00B37E' }}
-                activeDot={{ r: 4 }}
-              />
-=======
-              <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
-              <XAxis dataKey="block" tickFormatter={(v) => v.toLocaleString()} />
-              <YAxis label={{ value: 'Reward (ALYN)', angle: -90, position: 'insideLeft' }} />
-              <Tooltip
-                contentStyle={{ backgroundColor: '#fff', color: '#000', borderRadius: '0.375rem', padding: '0.5rem' }}
-                formatter={(value: number) => `${value.toFixed(4)} ALYN`}
-              />
-              <Line type="monotone" dataKey="reward" stroke="#008080" strokeWidth={2} dot={{ r: 1 }} />
->>>>>>> 4ed76f0cb04f092c9ede81e27880315351f797a7
-            </LineChart>
-          </ResponsiveContainer>
+          <SimpleLineChart data={emissionData} />
         </div>
       </div>
 
@@ -147,5 +93,18 @@ export default function TokenomicsPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+function SimpleLineChart({ data }: { data: { block: number; reward: number }[] }) {
+  const maxX = Math.max(...data.map(d => d.block));
+  const maxY = Math.max(...data.map(d => d.reward));
+  const points = data
+    .map(d => `${(d.block / maxX) * 100},${100 - (d.reward / maxY) * 100}`)
+    .join(' ');
+  return (
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <polyline fill="none" stroke="#00B37E" strokeWidth="2" points={points} />
+    </svg>
   );
 }
