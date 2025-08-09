@@ -10,7 +10,6 @@
  * follows the same visual style as the rest of the site with a dark theme
  * and a background image.
  */
-import Header from '../../components/Header';
 
 export default function MiningPage() {
   // Wrapper component to apply a background image with a tinted overlay.
@@ -64,11 +63,8 @@ export default function MiningPage() {
 
   return (
     <>
-      {/* Site header */}
-      <Header />
-
       {/* Hero */}
-      <FramedSection bg="image9.png">
+      <FramedSection bg="assets/image12.png">
         <h1 className="text-4xl font-bold mb-4">Mining & Emission</h1>
         <p className="mb-4 leading-relaxed">
           AlynCoin uses a hybrid proof‑of‑work consensus combining BLAKE3 and Keccak hashing. This
