@@ -1,7 +1,8 @@
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="text-center py-6 px-4 mt-10 border-t border-gray-800 bg-black text-gray-500 text-sm">
-      © 2025 AlynCoin. Built with quantum resistance in mind.
+    <footer className="border-t border-gray-200 dark:border-gray-700 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+      © {year} AlynCoin. Built for the quantum era.
     </footer>
   );
 }
