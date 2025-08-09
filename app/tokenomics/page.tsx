@@ -1,110 +1,107 @@
 "use client";
 
 /**
- * Tokenomics page
+ * Tokenomics page for the AlynCoin website.
  *
- * Provides a breakdown of the ALYN token supply, initial distribution, emission schedule,
- * and fee allocation. A simple line chart visualizes the exponential decay of block rewards
- * over time with a tail emission.
+ * This page describes the monetary policy of AlynCoin and shows how the
+ * initial premine is distributed among stakeholders. The design follows
+ * the same dark, modern aesthetic used throughout the site and reuses
+ * the overlayed background pattern common to other pages. A simple
+ * table conveys the premine allocations, and a short summary explains
+ * how rewards decay over time with a tail emission.
  */
+import Header from '../../components/Header';
+
 export default function TokenomicsPage() {
-  // Precomputed sample data for the reward decay curve. In production this would be
-  // generated dynamically or loaded from the blockchain state.
-  const emissionData = [
-    { block: 0, reward: 25 },
-    { block: 1_000, reward: 10.1601 },
-    { block: 2_000, reward: 4.1291 },
-    { block: 5_000, reward: 0.2772 },
-    { block: 10_000, reward: 0.0031 },
-    { block: 20_000, reward: 0.0000 },
-  ];
-  return (
-    <div className="space-y-12 py-10">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-4">Tokenomics</h1>
-      <p className="max-w-4xl mx-auto text-center text-gray-600 dark:text-gray-300">
-        AlynCoin’s monetary policy balances scarcity, fairness and sustainability. The total
-        supply is capped at <strong>100 million ALYN</strong>. At genesis, 10 million ALYN were
-        pre‑mined and distributed to strategic stakeholders as detailed below. Block rewards
-        decline exponentially as circulating supply approaches the cap, with a permanent tail
-        emission to incentivize miners in perpetuity. Additionally, a portion of every transaction
-        fee is burned and another portion funds ongoing development via the DAO treasury.
-      </p>
-
-      {/* Distribution Table */}
-      <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700 text-sm">
-          <thead className="bg-gray-50 dark:bg-gray-800">
-            <tr>
-              <th className="px-4 py-2 text-left font-semibold">Allocation</th>
-              <th className="px-4 py-2 text-right font-semibold">Amount (ALYN)</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-            <tr>
-              <td className="px-4 py-2">Airdrops</td>
-              <td className="px-4 py-2 text-right">1,000,000</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-2">Liquidity</td>
-              <td className="px-4 py-2 text-right">1,000,000</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-2">Investors</td>
-              <td className="px-4 py-2 text-right">3,000,000</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-2">Development</td>
-              <td className="px-4 py-2 text-right">2,000,000</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-2">Exchange Listings</td>
-              <td className="px-4 py-2 text-right">1,000,000</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-2">Team / Founder</td>
-              <td className="px-4 py-2 text-right">2,000,000</td>
-            </tr>
-          </tbody>
-        </table>
+  // Reusable section wrapper that applies a background image with an
+  // overlay. It accepts a relative path to the image located in the
+  // public directory. The overlay tint improves text contrast.
+  const FramedSection = ({
+    children,
+    bg,
+    position = 'center',
+    height = 'py-32',
+  }: {
+    children: React.ReactNode;
+    bg: string;
+    position?: string;
+    height?: string;
+  }) => (
+    <section
+      className={`${height} relative flex items-center justify-center`}
+      style={{
+        backgroundImage: `url(/${bg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: position,
+      }}
+    >
+      <div className="bg-black bg-opacity-60 p-8 rounded-lg text-white w-full max-w-5xl">
+        {children}
       </div>
-
-      {/* Emission Chart */}
-      <div className="max-w-4xl mx-auto bg-gray-900/60 rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-100">Block Reward Decay</h2>
-        <p className="text-center text-sm text-gray-400 mb-6">
-          Rewards start at 25 ALYN and decay by approximately 0.09% per block. A perpetual tail
-          emission of 0.25 ALYN per block ensures ongoing miner incentives once rewards stabilize near zero.
-        </p>
-        <div className="h-64">
-          <SimpleLineChart data={emissionData} />
-        </div>
-      </div>
-
-      {/* Fee Allocation Section */}
-      <div className="space-y-4 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold">Fee Allocation & Burn Mechanism</h2>
-        <p className="text-gray-600 dark:text-gray-300">
-          Every transaction on AlynCoin pays a small fee. Part of this fee is permanently
-          removed (“burned”), dynamically adjusting to network activity and reducing the
-          circulating supply. The remainder funds the DAO treasury, which finances ongoing
-          development, security audits and ecosystem grants. This mechanism balances supply
-          reduction with reinvestment, capping total supply at 100 million while ensuring
-          continuous improvement.
-        </p>
-      </div>
-    </div>
+    </section>
   );
-}
 
-function SimpleLineChart({ data }: { data: { block: number; reward: number }[] }) {
-  const maxX = Math.max(...data.map(d => d.block));
-  const maxY = Math.max(...data.map(d => d.reward));
-  const points = data
-    .map(d => `${(d.block / maxX) * 100},${100 - (d.reward / maxY) * 100}`)
-    .join(' ');
+  // Define the premine distribution. These numbers mirror the original
+  // allocation from the legacy site and sum to the 10&nbsp;million ALYN
+  // distributed at genesis. Feel free to adjust the values or add more
+  // entries as needed.
+  const premine = [
+    { allocation: 'Airdrops', amount: 1_000_000 },
+    { allocation: 'Liquidity', amount: 1_000_000 },
+    { allocation: 'Investors', amount: 3_000_000 },
+    { allocation: 'Development', amount: 2_000_000 },
+    { allocation: 'Exchange Listings', amount: 1_000_000 },
+    { allocation: 'Team / Founder', amount: 2_000_000 },
+  ];
+
   return (
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      <polyline fill="none" stroke="#00B37E" strokeWidth="2" points={points} />
-    </svg>
+    <>
+      {/* Site header */}
+      <Header />
+
+      {/* Hero section with background */}
+      <FramedSection bg="image16.png">
+        <h1 className="text-4xl font-bold mb-4">Tokenomics</h1>
+        <p className="mb-4 leading-relaxed">
+          AlynCoin’s monetary policy balances scarcity, fairness and sustainability. The total supply
+          is capped at 100&nbsp;million&nbsp;ALYN. At genesis, 10&nbsp;million&nbsp;ALYN were
+          pre‑mined and distributed to strategic stakeholders as detailed below. Block rewards
+          decline exponentially as circulating supply approaches the cap, with a permanent tail
+          emission to incentivise miners in perpetuity.
+        </p>
+      </FramedSection>
+
+      {/* Distribution table */}
+      <section className="py-16 bg-gray-950">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-semibold text-center text-white mb-4">
+            Premine Distribution
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-left text-white">
+              <thead>
+                <tr>
+                  <th className="py-2 px-4 border-b border-gray-700">Allocation</th>
+                  <th className="py-2 px-4 border-b border-gray-700">Amount (ALYN)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {premine.map((row) => (
+                  <tr key={row.allocation} className="odd:bg-gray-800 even:bg-gray-900">
+                    <td className="py-2 px-4">{row.allocation}</td>
+                    <td className="py-2 px-4">{row.amount.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-8 text-gray-300">
+            Additionally, a portion of every transaction fee is burned and another portion funds
+            ongoing development via the DAO treasury. Rewards start high and decline over time
+            towards a small tail emission to sustain miners in perpetuity.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
