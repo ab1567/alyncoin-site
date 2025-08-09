@@ -10,7 +10,6 @@
  * table conveys the premine allocations, and a short summary explains
  * how rewards decay over time with a tail emission.
  */
-import Header from '../../components/Header';
 
 export default function TokenomicsPage() {
   // Reusable section wrapper that applies a background image with an
@@ -56,11 +55,8 @@ export default function TokenomicsPage() {
 
   return (
     <>
-      {/* Site header */}
-      <Header />
-
       {/* Hero section with background */}
-      <FramedSection bg="image16.png">
+      <FramedSection bg="assets/image16.png">
         <h1 className="text-4xl font-bold mb-4">Tokenomics</h1>
         <p className="mb-4 leading-relaxed">
           AlynCoin’s monetary policy balances scarcity, fairness and sustainability. The total supply

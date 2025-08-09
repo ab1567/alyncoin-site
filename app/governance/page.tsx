@@ -9,7 +9,6 @@
  * the project’s treasury and roadmap. A list of key governance features is
  * presented in an easy‑to‑scan grid.
  */
-import Header from '../../components/Header';
 
 export default function GovernancePage() {
   // Section wrapper with background image and overlay. Accepts a relative
@@ -65,11 +64,8 @@ export default function GovernancePage() {
 
   return (
     <>
-      {/* Site header */}
-      <Header />
-
       {/* Hero section */}
-      <FramedSection bg="image17.png">
+      <FramedSection bg="assets/image17.png">
         <h1 className="text-4xl font-bold mb-4">Governance & DAO</h1>
         <p className="mb-4 leading-relaxed">
           AlynCoin’s governance is entirely on‑chain. Smart contracts handle proposal submission,
