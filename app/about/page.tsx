@@ -27,7 +27,7 @@ export default function AboutPage() {
     </section>
   );
 
-  const building = [
+  const uniqueFeatures = [
     { title: '💡 A custom non-EVM Layer-1', description: 'No legacy baggage' },
     { title: '🔐 Zero-knowledge proofs', description: 'Using Winterfell zk-STARKs' },
     { title: '🧠 Fully quantum-safe key systems', description: 'Falcon, Dilithium' },
@@ -61,20 +61,8 @@ export default function AboutPage() {
       {/* WHAT MAKES UNIQUE — directly on image9 (lock) */}
       <FramedSection bg="/assets/image9.png" position="center" height="pt-36 pb-40">
         <h2 className="text-4xl font-bold mb-6 text-cyan-300">🚀 What Makes AlynCoin Unique</h2>
-        <ul className="list-disc list-inside text-left text-gray-300 space-y-3 max-w-xl mx-auto">
-          <li><strong>Quantum-Resistant by Design</strong> – Built from scratch with Falcon and Dilithium</li>
-          <li><strong>Zero-Knowledge First</strong> – Recursive zk-STARKs enable private, scalable rollups</li>
-          <li><strong>Hybrid PoW</strong> – BLAKE3 + Keccak makes mining both secure and efficient</li>
-          <li><strong>Self-Healing Nodes</strong> – Automatic sync repair and resilience across peers</li>
-          <li><strong>Developer Ready</strong> – Full CLI/GUI, APIs, wallet scripting, and SDKs</li>
-        </ul>
-      </FramedSection>
-
-      {/* WHAT WE'RE BUILDING */}
-      <FramedSection bg="/assets/image5.png" position="center" height="pt-36 pb-40">
-        <h2 className="text-4xl font-bold mb-6 text-cyan-300">🧱 What We're Building</h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 text-left">
-          {building.map(({ title, description }) => (
+          {uniqueFeatures.map(({ title, description }) => (
             <div
               key={title}
               className="p-4 rounded-lg border border-gray-700 bg-gray-800 shadow-sm space-y-2"

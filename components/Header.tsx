@@ -11,9 +11,9 @@ export default function Header() {
             className="w-12 h-12 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text drop-shadow-lg">
+          <span className="text-2xl sm:text-3xl font-black tracking-tight bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text drop-shadow-lg">
             AlynCoin
-          </h1>
+          </span>
         </div>
 
         {/* Nav Buttons */}
