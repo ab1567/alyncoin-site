@@ -27,6 +27,21 @@ export default function AboutPage() {
     </section>
   );
 
+  const building = [
+    { title: '💡 A custom non-EVM Layer-1', description: 'No legacy baggage' },
+    { title: '🔐 Zero-knowledge proofs', description: 'Using Winterfell zk-STARKs' },
+    { title: '🧠 Fully quantum-safe key systems', description: 'Falcon, Dilithium' },
+    { title: '🪙 Native token', description: 'Elastic difficulty + modular emission' },
+    {
+      title: '🧹 zk-based identity & governance',
+      description: 'zk-NFTs, DAO governance, rollups',
+    },
+    {
+      title: '🔄 Recursive proofs',
+      description: 'Support for scalability & compression',
+    },
+  ];
+
   return (
     <div className="relative bg-black text-white">
 
@@ -53,6 +68,22 @@ export default function AboutPage() {
           <li><strong>Self-Healing Nodes</strong> – Automatic sync repair and resilience across peers</li>
           <li><strong>Developer Ready</strong> – Full CLI/GUI, APIs, wallet scripting, and SDKs</li>
         </ul>
+      </FramedSection>
+
+      {/* WHAT WE'RE BUILDING */}
+      <FramedSection bg="/assets/image5.png" position="center" height="pt-36 pb-40">
+        <h2 className="text-4xl font-bold mb-6 text-cyan-300">🧱 What We're Building</h2>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 text-left">
+          {building.map(({ title, description }) => (
+            <div
+              key={title}
+              className="p-4 rounded-lg border border-gray-700 bg-gray-800 shadow-sm space-y-2"
+            >
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <p className="text-sm text-gray-400">{description}</p>
+            </div>
+          ))}
+        </div>
       </FramedSection>
 
       {/* VISION AHEAD — image4 */}

@@ -21,8 +21,10 @@ export default function Header() {
           {[
             { label: 'Home', href: '/' },
             { label: 'About', href: '/about' },
+            { label: 'Governance', href: '/governance' },
+            { label: 'Mining', href: '/mining' },
+            { label: 'Tokenomics', href: '/tokenomics' },
             { label: 'Downloads', href: '/downloads' },
-            { label: 'Videos', href: '/videos' },
           ].map(({ label, href }) => (
             <a
               key={href}
