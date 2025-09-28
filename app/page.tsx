@@ -124,9 +124,14 @@ export default function Home() {
             >
               📄 View Whitepaper
             </a>
-            <span className="px-6 py-3 bg-gray-600 text-white rounded-xl opacity-60 cursor-not-allowed shadow-inner">
-              🍬 Wallet Coming Soon
-            </span>
+            <a
+              href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.0/AlynCoin-win.exe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition shadow-md"
+            >
+              🪟 Download Windows Miner
+            </a>
           </div>
           <p className="mt-10 text-sm text-cyan-300 animate-bounce">↓ Scroll to Explore</p>
         </div>
