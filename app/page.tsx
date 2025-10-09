@@ -124,14 +124,26 @@ export default function Home() {
             >
               📄 View Whitepaper
             </a>
-            <a
-              href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.0/AlynCoin-win.exe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition shadow-md"
-            >
-              🪟 Download Windows Miner
-            </a>
+            <div className="flex flex-col items-center">
+              <a
+                href="https://github.com/ab1567/alyncoin-site/releases/latest/download/AlynCoin-win.exe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition shadow-md"
+              >
+                🪟 Download Windows Miner
+              </a>
+              <small className="mt-1 text-sm text-gray-300">
+                <a
+                  href="https://github.com/ab1567/alyncoin-site/releases/latest"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-100"
+                >
+                  Release notes
+                </a>
+              </small>
+            </div>
           </div>
           <p className="mt-10 text-sm text-cyan-300 animate-bounce">↓ Scroll to Explore</p>
         </div>
