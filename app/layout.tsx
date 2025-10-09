@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               🚀
             </span>
             <p className="flex-1 text-center">
-              <span className="text-cyan-300">Mac miner launches in two weeks.</span> Help us polish the release—download the
-              Windows build, hunt for bugs, and share your feedback.
+              <span className="text-cyan-300">Early miner access is live.</span> Grab the latest build, hunt for bugs, and
+              share your feedback.
             </p>
             <a
               href="/downloads"
