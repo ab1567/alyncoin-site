@@ -26,7 +26,7 @@ export default function DownloadsPage() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <div className="flex flex-col items-center">
               <a
-                href="https://github.com/ab1567/alyncoin-site/releases/latest/download/AlynCoin-win.exe"
+                href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.1.4/AlynCoin-win.exe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl shadow-md transition"
