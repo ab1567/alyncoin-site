@@ -126,7 +126,7 @@ export default function Home() {
             </a>
             <div className="flex flex-col items-center">
               <a
-                href="https://github.com/ab1567/alyncoin-site/releases/latest/download/AlynCoin-win.exe"
+                href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.1.4/AlynCoin-win.exe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition shadow-md"
