@@ -91,6 +91,9 @@ export default function Home() {
     },
   ];
 
+  const ctaBase =
+    'inline-flex items-center justify-center px-6 py-3 rounded-xl shadow-md transition whitespace-nowrap text-white text-center';
+
   return (
     <>
       {/* HERO */}
@@ -114,28 +117,28 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="/downloads/AlyncoinGPTresearch.pdf"
-              className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl hover:from-purple-600 hover:to-pink-700 transition shadow-md"
+              className={`${ctaBase} bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700`}
             >
               🧠 GPT Research
             </a>
             <a
               href="/downloads/AlynCoin_Whitepaper.pdf"
-              className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition shadow-md animate-pulse"
+              className={`${ctaBase} bg-blue-600 hover:bg-blue-700 animate-pulse`}
             >
               📄 View Whitepaper
             </a>
             <div className="flex flex-col items-center">
               <a
-                href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.1.5/AlynCoin-win.exe"
+                href="https://github.com/ab1567/AlynCoin-public/releases/latest/download/AlynCoin-win.exe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition shadow-md"
+                className={`${ctaBase} bg-emerald-600 hover:bg-emerald-700`}
               >
                 🪟 Download Windows Miner
               </a>
               <small className="mt-1 text-sm text-gray-300">
                 <a
-                  href="https://github.com/ab1567/alyncoin-site/releases/latest"
+                  href="https://github.com/ab1567/AlynCoin-public/releases/latest"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:text-gray-100"
@@ -144,6 +147,14 @@ export default function Home() {
                 </a>
               </small>
             </div>
+            <a
+              href="https://github.com/ab1567/AlynCoin-public"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${ctaBase} bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500`}
+            >
+              🌐 Open Source Repo
+            </a>
           </div>
           <p className="mt-10 text-sm text-cyan-300 animate-bounce">↓ Scroll to Explore</p>
         </div>

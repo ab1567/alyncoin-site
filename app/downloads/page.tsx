@@ -1,6 +1,9 @@
 'use client';
 
 export default function DownloadsPage() {
+  const ctaBase =
+    'inline-flex items-center justify-center px-6 py-3 rounded-xl shadow-md transition whitespace-nowrap text-white text-center';
+
   return (
     <section
       className="relative text-white py-32 px-6 min-h-screen"
@@ -19,23 +22,23 @@ export default function DownloadsPage() {
         <div className="w-full max-w-[1200px] text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-cyan-300">⬇️ Download Center</h2>
           <p className="text-lg text-gray-300 mb-10 max-w-3xl mx-auto">
-            Grab the brand-new Windows miner below, report any bugs you find, and stay tuned—our Mac miner ships in two
-            weeks alongside more tooling.
+            Grab the brand-new Windows miner below, explore the open source repo, report any bugs you find, and stay
+            tuned—our Mac miner ships in two weeks alongside more tooling.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <div className="flex flex-col items-center">
               <a
-                href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.1.5/AlynCoin-win.exe"
+                href="https://github.com/ab1567/AlynCoin-public/releases/latest/download/AlynCoin-win.exe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl shadow-md transition"
+                className={`${ctaBase} bg-emerald-600 hover:bg-emerald-700`}
               >
                 🪟 Download Windows Miner
               </a>
               <small className="mt-1 text-sm text-gray-300">
                 <a
-                  href="https://github.com/ab1567/alyncoin-site/releases/latest"
+                  href="https://github.com/ab1567/AlynCoin-public/releases/latest"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:text-gray-100"
@@ -45,22 +48,30 @@ export default function DownloadsPage() {
               </small>
             </div>
             <a
+              href="https://github.com/ab1567/AlynCoin-public"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${ctaBase} bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500`}
+            >
+              🌐 Open Source Repo
+            </a>
+            <a
               href="/downloads/AlynCoin_Whitepaper.pdf"
               target="_blank"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-md transition"
+              className={`${ctaBase} bg-blue-600 hover:bg-blue-700`}
             >
               📄 View Whitepaper
             </a>
             <a
               href="/downloads/pitch_deck.pdf"
               target="_blank"
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow-md transition"
+              className={`${ctaBase} bg-green-600 hover:bg-green-700`}
             >
               📘 View Pitch Deck
             </a>
             <a
               href="/"
-              className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-xl shadow-md transition"
+              className={`${ctaBase} bg-gray-700 hover:bg-gray-600`}
             >
               🔙 Back to Home
             </a>
