@@ -129,7 +129,7 @@ export default function Home() {
             </a>
             <div className="flex flex-col items-center">
               <a
-                href="https://github.com/ab1567/AlynCoin-public/releases/latest/download/AlynCoin-win.exe"
+                href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.1.6/AlynCoin-win.exe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${ctaBase} bg-emerald-600 hover:bg-emerald-700`}
