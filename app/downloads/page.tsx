@@ -2,7 +2,7 @@
 
 export default function DownloadsPage() {
   const ctaBase =
-    'inline-flex items-center justify-center px-6 py-3 rounded-xl shadow-md transition whitespace-nowrap text-white text-center';
+    'inline-flex items-center justify-center px-6 h-14 min-w-[220px] w-full sm:w-auto rounded-xl shadow-md transition whitespace-nowrap text-white text-center text-base font-semibold gap-2';
 
   return (
     <section
@@ -29,23 +29,21 @@ export default function DownloadsPage() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <div className="flex flex-col items-center">
               <a
-                href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.1.5/AlynCoin-win.exe"
+                href="https://github.com/ab1567/alyncoin-site/releases/download/v1.0.1.7/AlynCoin-win.exe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${ctaBase} bg-emerald-600 hover:bg-emerald-700`}
               >
                 🪟 Download Windows Miner
               </a>
-              <small className="mt-1 text-sm text-gray-300">
-                <a
-                  href="https://github.com/ab1567/AlynCoin-public/releases/latest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-gray-100"
-                >
-                  Release notes
-                </a>
-              </small>
+              <a
+                href="https://github.com/ab1567/alyncoin-site/releases/latest"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 text-sm text-gray-300 underline hover:text-gray-100"
+              >
+                Release notes
+              </a>
             </div>
             <a
               href="https://github.com/ab1567/AlynCoin-public"
