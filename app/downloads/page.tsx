@@ -22,8 +22,8 @@ export default function DownloadsPage() {
         <div className="w-full max-w-[1200px] text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-cyan-300">⬇️ Download Center</h2>
           <p className="text-lg text-gray-300 mb-10 max-w-3xl mx-auto">
-            Grab the brand-new Windows miner below, explore the open source repo, report any bugs you find, and stay
-            tuned—our Mac miner ships in two weeks alongside more tooling.
+            Grab the brand-new Windows miner below, explore the open source repo, and report any bugs you find—we
+            currently support Windows only while the Mac miner remains under active development.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
