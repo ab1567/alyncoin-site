@@ -18,8 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               🚀
             </span>
             <p className="flex-1 text-center">
-              <span className="text-cyan-300">Early miner access is live.</span> Grab the latest build, hunt for bugs, and
-              share your feedback.
+              <span className="text-cyan-300">Project is discountinued due to funding issues.</span> Due to Crypto crash creator lost money which was saved to run community project, we have not taken any money from anyone.
             </p>
             <a
               href="/downloads"
