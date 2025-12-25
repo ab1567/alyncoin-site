@@ -11,22 +11,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-black text-white">
-        {/* 🔔 Global Early Mining Notice */}
+        {/* 🔔 Global Project Status Notice */}
         <div className="fixed top-0 left-0 w-full bg-gradient-to-r from-cyan-800/90 via-black to-cyan-800/90 text-white text-sm md:text-base font-semibold py-2 z-50 shadow-lg backdrop-blur">
           <div className="mx-auto flex max-w-5xl items-center justify-center gap-3 px-4">
             <span aria-hidden="true" className="hidden text-lg sm:inline">
               🚀
             </span>
             <p className="flex-1 text-center">
-              <span className="text-cyan-300">Project is discountinued due to funding issues.</span> Due to Crypto crash creator lost money which was saved to run community project, we have not taken any money from anyone.
+              <span className="text-cyan-300">
+                This project has been discontinued due to funding issues.
+              </span>{' '}
+              Following the crypto market crash, the creator lost the personal
+              funds that were allocated to support this community project. No
+              money was ever taken from users or the community.
             </p>
-            <a
-              href="/downloads"
-              className="inline-flex items-center gap-1 rounded-full border border-cyan-400/70 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-100 transition hover:border-cyan-300 hover:text-white hover:shadow-lg md:text-sm"
-            >
-              Download
-              <span aria-hidden="true">→</span>
-            </a>
           </div>
         </div>
 
