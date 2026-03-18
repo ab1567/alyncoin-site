@@ -19,11 +19,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </span>
             <p className="flex-1 text-center">
               <span className="text-cyan-300">
-                This project has been discontinued due to funding issues.
+                This project has been temporarily paused due to personal
+                circumstances.
               </span>{' '}
-              Following the crypto market crash, the creator lost the personal
-              funds that were allocated to support this community project. No
-              money was ever taken from users or the community.
+              No money was ever taken from users or the community. We are
+              working towards returning with improved technology and a stronger
+              foundation.
             </p>
           </div>
         </div>
