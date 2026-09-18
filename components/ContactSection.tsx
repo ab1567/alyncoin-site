@@ -34,7 +34,7 @@ export default function ContactSection() {
           <p><strong>Email:</strong> <a href="mailto:contact@alyncoin.com">contact@alyncoin.com</a></p>
           <p><strong>Twitter:</strong> <a href="https://twitter.com/alyncoin" target="_blank">@alyncoin</a></p>
           <p><strong>Instagram:</strong> <a href="https://instagram.com/alyncoin_official" target="_blank">@alyncoin_official</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/ab1567/alyncoin-site" target="_blank">github.com/ab1567/alyncoin-site</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/ab1567/alyncoin" target="_blank">github.com/ab1567/alyncoin</a></p>
         </div>
 
         <div className="flex justify-center mb-8">
